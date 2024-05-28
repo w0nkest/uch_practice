@@ -38,7 +38,7 @@ class Playerrun(pygame.sprite.Sprite):
         self.frames = []
         self.cut_sheet(sheet, columns, rows)
         self.cur_frame = 0
-        self.something = 1
+        self.way = 1
         self.image = self.frames[self.cur_frame]
         self.rect = self.rect.move(x, y)
 
@@ -53,8 +53,8 @@ class Playerrun(pygame.sprite.Sprite):
 
     def update(self, pl1_pos, pl2_pos):
         self.cur_frame = (self.cur_frame + 1) % len(self.frames)
-        self.image = self.frames[self.cur_frame * self.something]
-        if self.something == 1:
+        self.image = self.frames[self.cur_frame * self.way]
+        if self.way == 1:
             self.rect = self.rect.move(-24, 0)      # (-30, 0)
             if self.r:
                 pl2_pos[0] -= 24                    # 30

@@ -78,7 +78,6 @@ if __name__ == '__main__':
 
     time = 0
     counter = 10
-    is_pause = False
 
     font = pygame.font.Font(None, 120)  # 150
     font1 = pygame.font.Font(None, 80)  # 100
@@ -145,7 +144,7 @@ if __name__ == '__main__':
                     if pl2_HPbar.hp == 0:
                         Cody_is_win = True
             elif keys[pygame.K_d] and pl1_pos[0] < 1160 and abs(pl1_pos[0] - pl2_pos[0]) > safe_zone:   # 1450
-                player_ru1.something = 1
+                player_ru1.way = 1
                 player_sit1.cur_frame = 0
                 all_sprites_run1.draw(screen)
                 player_ru1.update(pl1_pos, pl2_pos)
@@ -155,7 +154,7 @@ if __name__ == '__main__':
                 all_sprites_sit1.draw(screen)
             elif keys[pygame.K_a] and 0 < pl1_pos[0]:
                 player_sit1.is_sitting = False
-                player_ru1.something = -1
+                player_ru1.way = -1
                 player_sit1.cur_frame = 0
                 all_sprites_run1.draw(screen)
                 player_ru1.update(pl1_pos, pl2_pos)
@@ -188,7 +187,7 @@ if __name__ == '__main__':
                         Akira_is_win = True
             elif keys[pygame.K_RIGHT] and pl2_pos[0] < 1160:        # 1450
                 player_sit2.is_sitting = False
-                player_ru2.something = -1
+                player_ru2.way = -1
                 player_sit2.cur_frame = 0
                 all_sprites_run2.draw(screen)
                 player_ru2.update(pl1_pos, pl2_pos)
@@ -196,9 +195,9 @@ if __name__ == '__main__':
                 player_sit2.is_sitting = True
                 player_sit2.update()
                 all_sprites_sit2.draw(screen)
-            elif keys[pygame.K_LEFT] and 0 < pl1_pos[0] and abs(pl1_pos[0] - pl2_pos[0]) > safe_zone:
+            elif keys[pygame.K_LEFT] and 0 < pl2_pos[0] and abs(pl1_pos[0] - pl2_pos[0]) > safe_zone:
                 player_sit2.is_sitting = False
-                player_ru2.something = 1
+                player_ru2.way = 1
                 player_sit2.cur_frame = 0
                 all_sprites_run2.draw(screen)
                 player_ru2.update(pl1_pos, pl2_pos)
