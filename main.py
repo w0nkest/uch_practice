@@ -226,3 +226,4 @@ if __name__ == '__main__':
         winscreen(screen, clock, width, height, 'Cody', time1, time2, FPSM)
 
     pygame.quit()
+    sys.exit()
